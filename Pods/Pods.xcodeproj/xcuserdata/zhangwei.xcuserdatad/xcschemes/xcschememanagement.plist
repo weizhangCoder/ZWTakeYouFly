@@ -24,6 +24,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>HSSetTableViewController.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>IQKeyboardManager.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -97,12 +102,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>142B04C2FDF31317D060639BA488CE73</key>
+		<key>0ED57B2838D3D549A38190BC5A148D29</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>1657A2B5FAA2485E5B7423B0EFF9FF17</key>
+		<key>132E760CC03E2DAE3E878C30B9FE24D9</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -113,6 +118,21 @@
 			<true/>
 		</dict>
 		<key>17D75DECC3DE8C06D486EDEF077B8AF3</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>279AA6726F52A334C45E85774BD21A3D</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>4319C8BC1024F247FABDBDE9B5A39818</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>5236ECF7D717798C6EC0CF4E627F63B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,22 +152,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7BAAEC1386420288825150BB5315CA52</key>
+		<key>80B239D7A2CA5190502449F21716A127</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>89A1E6982AF825C404C8CBE66CBD4FC7</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>967084808343CF688E0C37A13A5A2001</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>9810BB9C8FA02A658E836040AE2DC9BC</key>
+		<key>9025871C1D52974C8CD93DE22BE51163</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -157,12 +167,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>B8A037FFEDE0C7442A9783FABEAA2133</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>C0B5047A34A9B33B12860CE4DD4AE166</key>
+		<key>BDC66EC5F032EBB7DBE49BA8B73D3943</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -173,6 +178,11 @@
 			<true/>
 		</dict>
 		<key>D2285516AB072BB001F242EC2FB6BA5A</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>E31B90D1E391D5533AE7230A9743AF1D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
