@@ -12,7 +12,7 @@
 		72D9E2201F25EA3400FED4A4 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E21A1F25EA3400FED4A4 /* FourViewController.m */; };
 		72D9E2211F25EA3400FED4A4 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E21C1F25EA3400FED4A4 /* ThreeViewController.m */; };
 		72D9E2221F25EA3400FED4A4 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E21E1F25EA3400FED4A4 /* TwoViewController.m */; };
-		72D9E2261F25EF0F00FED4A4 /* WRNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E2251F25EF0F00FED4A4 /* WRNavigationBar.m */; };
+		72D9E2291F25F5CD00FED4A4 /* ZWNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E2281F25F5CD00FED4A4 /* ZWNavigationViewController.m */; };
 		72F7FED61F21F1DC00BFC7E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7FED51F21F1DC00BFC7E6 /* main.m */; };
 		72F7FEE11F21F1DC00BFC7E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F7FEE01F21F1DC00BFC7E6 /* Assets.xcassets */; };
 		72F7FEFE1F21F67C00BFC7E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7FEEE1F21F67C00BFC7E6 /* AppDelegate.m */; };
@@ -64,8 +64,8 @@
 		72D9E21C1F25EA3400FED4A4 /* ThreeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ThreeViewController.m; sourceTree = "<group>"; };
 		72D9E21D1F25EA3400FED4A4 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
 		72D9E21E1F25EA3400FED4A4 /* TwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
-		72D9E2241F25EF0F00FED4A4 /* WRNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WRNavigationBar.h; sourceTree = "<group>"; };
-		72D9E2251F25EF0F00FED4A4 /* WRNavigationBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WRNavigationBar.m; sourceTree = "<group>"; };
+		72D9E2271F25F5CD00FED4A4 /* ZWNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWNavigationViewController.h; sourceTree = "<group>"; };
+		72D9E2281F25F5CD00FED4A4 /* ZWNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWNavigationViewController.m; sourceTree = "<group>"; };
 		72F7FED11F21F1DC00BFC7E6 /* ZWTakeYouFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZWTakeYouFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F7FED51F21F1DC00BFC7E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		72F7FEE01F21F1DC00BFC7E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,15 +162,6 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		72D9E2231F25EF0F00FED4A4 /* WRNavigationBar */ = {
-			isa = PBXGroup;
-			children = (
-				72D9E2241F25EF0F00FED4A4 /* WRNavigationBar.h */,
-				72D9E2251F25EF0F00FED4A4 /* WRNavigationBar.m */,
-			);
-			path = WRNavigationBar;
-			sourceTree = "<group>";
-		};
 		72F7FEC81F21F1DC00BFC7E6 = {
 			isa = PBXGroup;
 			children = (
@@ -319,6 +310,8 @@
 		72F7FEF81F21F67C00BFC7E6 /* Mine(主视图) */ = {
 			isa = PBXGroup;
 			children = (
+				72D9E2271F25F5CD00FED4A4 /* ZWNavigationViewController.h */,
+				72D9E2281F25F5CD00FED4A4 /* ZWNavigationViewController.m */,
 				72D9E2171F25EA3400FED4A4 /* FirstViewController.h */,
 				72D9E2181F25EA3400FED4A4 /* FirstViewController.m */,
 				72D9E2191F25EA3400FED4A4 /* FourViewController.h */,
@@ -343,7 +336,6 @@
 		72F7FEFC1F21F67C00BFC7E6 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
-				72D9E2231F25EF0F00FED4A4 /* WRNavigationBar */,
 				72F7FFB11F21FFDE00BFC7E6 /* LCProgressHUD */,
 				72F7FEFD1F21F67C00BFC7E6 /* Category */,
 			);
@@ -717,7 +709,6 @@
 				72F7FFBC1F2200A800BFC7E6 /* ZWUserInfoManager.m in Sources */,
 				72F7FFA91F21FFA000BFC7E6 /* UIImageView+Extension.m in Sources */,
 				72F7FFB01F21FFA000BFC7E6 /* UIViewController+ZWBaseMethods.m in Sources */,
-				72D9E2261F25EF0F00FED4A4 /* WRNavigationBar.m in Sources */,
 				72F7FFAE1F21FFA000BFC7E6 /* UIView+Tap.m in Sources */,
 				72F7FFA11F21FFA000BFC7E6 /* NSMutableAttributedString+ZWStrAttribued.m in Sources */,
 				72F7FFAF1F21FFA000BFC7E6 /* UIViewExt.m in Sources */,
@@ -726,6 +717,7 @@
 				72F7FFBF1F2200CB00BFC7E6 /* ZWUserInfoModel.m in Sources */,
 				72F7FFA51F21FFA000BFC7E6 /* UIColor+applianceHex.m in Sources */,
 				72F7FF9E1F21FFA000BFC7E6 /* NSNotificationCenter+Addition.m in Sources */,
+				72D9E2291F25F5CD00FED4A4 /* ZWNavigationViewController.m in Sources */,
 				72F7FFA31F21FFA000BFC7E6 /* UIBarButtonItem+WNXBarButtonItem.m in Sources */,
 				72F7FFAB1F21FFA000BFC7E6 /* UILabel+Fast.m in Sources */,
 				72F7FFA71F21FFA000BFC7E6 /* UIImage+Extension.m in Sources */,

@@ -7,27 +7,28 @@
 //
 
 #import "CYLTabBarControllerConfig.h"
-//#import "ZWNavigationViewController.h"
+#import "ZWNavigationViewController.h"
 
 
 #import "FirstViewController.h"
 #import "TwoViewController.h"
 #import "ThreeViewController.h"
 #import "FourViewController.h"
-@interface CYLBaseNavigationController : UINavigationController
-@end
 
-@implementation CYLBaseNavigationController
-
-- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
-    if (self.viewControllers.count > 0) {
-        viewController.hidesBottomBarWhenPushed = YES;
-    }
-    [super pushViewController:viewController animated:animated];
-}
-
-@end
-
+//@interface CYLBaseNavigationController : UINavigationController
+//@end
+//
+//@implementation CYLBaseNavigationController
+//
+//- (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
+//    if (self.viewControllers.count > 0) {
+//        viewController.hidesBottomBarWhenPushed = YES;
+//    }
+//    [super pushViewController:viewController animated:animated];
+//}
+//
+//@end
+//
 
 
 @interface CYLTabBarControllerConfig ()<UITabBarControllerDelegate>
@@ -64,23 +65,23 @@
 - (NSArray *)viewControllers {
     UIViewController *firstViewController = [[FirstViewController alloc] init];
     firstViewController.navigationItem.title = @"首页";
-    UINavigationController *firstNavigationController = [[CYLBaseNavigationController alloc]
+    UINavigationController *firstNavigationController = [[ZWNavigationViewController alloc]
                                                    initWithRootViewController:firstViewController];
      [firstViewController.navigationController.tabBarItem setBadgeValue:@"3"];
     
     UIViewController *secondViewController = [[TwoViewController alloc] init];
     secondViewController.navigationItem.title = @"同城";
-    UIViewController *secondNavigationController = [[CYLBaseNavigationController alloc]
+    UIViewController *secondNavigationController = [[ZWNavigationViewController alloc]
                                                     initWithRootViewController:secondViewController];
     
     UIViewController *thirdViewController = [[ThreeViewController alloc] init];
     thirdViewController.navigationItem.title = @"消息";
-    UIViewController *thirdNavigationController = [[CYLBaseNavigationController alloc]
+    UIViewController *thirdNavigationController = [[ZWNavigationViewController alloc]
                                                    initWithRootViewController:thirdViewController];
     
     UIViewController *fourViewController = [[FourViewController alloc] init];
     fourViewController.navigationItem.title = @"我的";
-    UIViewController *fourNavigationController = [[CYLBaseNavigationController alloc]
+    UIViewController *fourNavigationController = [[ZWNavigationViewController alloc]
                                                    initWithRootViewController:fourViewController];
     NSArray *viewControllers = @[
                                  firstNavigationController,

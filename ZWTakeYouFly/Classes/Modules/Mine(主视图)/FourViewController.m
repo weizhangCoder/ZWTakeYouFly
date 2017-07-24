@@ -7,7 +7,7 @@
 //
 
 #import "FourViewController.h"
-#import "WRNavigationBar.h"
+
 
 @interface FourViewController ()
 
@@ -20,10 +20,11 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor grayColor];
-    [UIColor wr_setDefaultNavBarTintColor:[UIColor blackColor]];
-    // 设置导航栏标题默认颜色
-    [UIColor wr_setDefaultNavBarTitleColor:[UIColor blackColor]];
-     [self wr_setNavBarBackgroundAlpha:0.2];
+////    [UIColor wr_setDefaultNavBarTintColor:[UIColor blackColor]];
+////    // 设置导航栏标题默认颜色
+////    [UIColor wr_setDefaultNavBarTitleColor:[UIColor blackColor]];
+////     [self wr_setNavBarBackgroundAlpha:0.2];
+//     [self wr_setNavBarBackgroundAlpha:0];
     
 }
 #pragma mark --------------------------SetUp----------------------/
