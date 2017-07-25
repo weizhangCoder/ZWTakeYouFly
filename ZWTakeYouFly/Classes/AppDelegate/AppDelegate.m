@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "CYLTabBarControllerConfig.h"
+#import "HcdGuideView.h"
 
 @interface AppDelegate ()
 
@@ -27,6 +28,7 @@
     [self.window setRootViewController:tabBarController];
     // 1.键盘全局设置
     [self configureKeyboard];
+    [self addGuideView];
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -42,6 +44,24 @@
     //最新版的设置键盘的returnKey的关键字 ,可以点击键盘上的next键，自动跳转到下一个输入框，最后一个输入框点击完成，自动收起键盘
     manager.toolbarManageBehaviour =IQAutoToolbarByTag;
     manager.toolbarDoneBarButtonItemText =@"完成";//将右边Done改成完成
+}
+
+- (void)addGuideView{
+    NSMutableArray *images = [NSMutableArray new];
+    
+    [images addObject:[UIImage imageNamed:@"1"]];
+    [images addObject:[UIImage imageNamed:@"2"]];
+    [images addObject:[UIImage imageNamed:@"3"]];
+    
+    HcdGuideView *guideView = [HcdGuideView sharedInstance];
+    guideView.window = self.window;
+    [guideView showGuideViewWithImages:images
+                        andButtonTitle:@"立即体验"
+                   andButtonTitleColor:[UIColor whiteColor]
+                      andButtonBGColor:[UIColor clearColor]
+                  andButtonBorderColor:[UIColor whiteColor]];
+    
+
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

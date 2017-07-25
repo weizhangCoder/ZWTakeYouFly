@@ -13,6 +13,8 @@
 		72D9E2211F25EA3400FED4A4 /* ThreeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E21C1F25EA3400FED4A4 /* ThreeViewController.m */; };
 		72D9E2221F25EA3400FED4A4 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E21E1F25EA3400FED4A4 /* TwoViewController.m */; };
 		72D9E2291F25F5CD00FED4A4 /* ZWNavigationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E2281F25F5CD00FED4A4 /* ZWNavigationViewController.m */; };
+		72D9E22F1F26D77600FED4A4 /* HcdGuideView.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E22C1F26D77600FED4A4 /* HcdGuideView.m */; };
+		72D9E2301F26D77600FED4A4 /* HcdGuideViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E22E1F26D77600FED4A4 /* HcdGuideViewCell.m */; };
 		72F7FED61F21F1DC00BFC7E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7FED51F21F1DC00BFC7E6 /* main.m */; };
 		72F7FEE11F21F1DC00BFC7E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F7FEE01F21F1DC00BFC7E6 /* Assets.xcassets */; };
 		72F7FEFE1F21F67C00BFC7E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7FEEE1F21F67C00BFC7E6 /* AppDelegate.m */; };
@@ -66,6 +68,10 @@
 		72D9E21E1F25EA3400FED4A4 /* TwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
 		72D9E2271F25F5CD00FED4A4 /* ZWNavigationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWNavigationViewController.h; sourceTree = "<group>"; };
 		72D9E2281F25F5CD00FED4A4 /* ZWNavigationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZWNavigationViewController.m; sourceTree = "<group>"; };
+		72D9E22B1F26D77600FED4A4 /* HcdGuideView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HcdGuideView.h; sourceTree = "<group>"; };
+		72D9E22C1F26D77600FED4A4 /* HcdGuideView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HcdGuideView.m; sourceTree = "<group>"; };
+		72D9E22D1F26D77600FED4A4 /* HcdGuideViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HcdGuideViewCell.h; sourceTree = "<group>"; };
+		72D9E22E1F26D77600FED4A4 /* HcdGuideViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HcdGuideViewCell.m; sourceTree = "<group>"; };
 		72F7FED11F21F1DC00BFC7E6 /* ZWTakeYouFly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZWTakeYouFly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		72F7FED51F21F1DC00BFC7E6 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		72F7FEE01F21F1DC00BFC7E6 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,6 +168,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		72D9E22A1F26D77600FED4A4 /* GuideController */ = {
+			isa = PBXGroup;
+			children = (
+				72D9E22B1F26D77600FED4A4 /* HcdGuideView.h */,
+				72D9E22C1F26D77600FED4A4 /* HcdGuideView.m */,
+				72D9E22D1F26D77600FED4A4 /* HcdGuideViewCell.h */,
+				72D9E22E1F26D77600FED4A4 /* HcdGuideViewCell.m */,
+			);
+			path = GuideController;
+			sourceTree = "<group>";
+		};
 		72F7FEC81F21F1DC00BFC7E6 = {
 			isa = PBXGroup;
 			children = (
@@ -329,6 +346,7 @@
 		72F7FEFB1F21F67C00BFC7E6 /* ThirdParty */ = {
 			isa = PBXGroup;
 			children = (
+				72D9E22A1F26D77600FED4A4 /* GuideController */,
 			);
 			path = ThirdParty;
 			sourceTree = "<group>";
@@ -707,6 +725,7 @@
 				72D9E20A1F25CE6F00FED4A4 /* CYLTabBarControllerConfig.m in Sources */,
 				72F7FEFE1F21F67C00BFC7E6 /* AppDelegate.m in Sources */,
 				72F7FFBC1F2200A800BFC7E6 /* ZWUserInfoManager.m in Sources */,
+				72D9E2301F26D77600FED4A4 /* HcdGuideViewCell.m in Sources */,
 				72F7FFA91F21FFA000BFC7E6 /* UIImageView+Extension.m in Sources */,
 				72F7FFB01F21FFA000BFC7E6 /* UIViewController+ZWBaseMethods.m in Sources */,
 				72F7FFAE1F21FFA000BFC7E6 /* UIView+Tap.m in Sources */,
@@ -732,6 +751,7 @@
 				72F7FFA21F21FFA000BFC7E6 /* NSString+Addition.m in Sources */,
 				72F7FFC21F22010400BFC7E6 /* NHCommonConstant.m in Sources */,
 				72F7FFB91F21FFDE00BFC7E6 /* ZWProgressHUD.m in Sources */,
+				72D9E22F1F26D77600FED4A4 /* HcdGuideView.m in Sources */,
 				72F7FF9D1F21FFA000BFC7E6 /* DataSafe.m in Sources */,
 				72F7FEFF1F21F67C00BFC7E6 /* ViewController.m in Sources */,
 				72F7FFA61F21FFA000BFC7E6 /* UIFont+Extension.m in Sources */,
