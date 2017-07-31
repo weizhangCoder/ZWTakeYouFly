@@ -28,7 +28,8 @@
     [self.window setRootViewController:tabBarController];
     // 1.键盘全局设置
     [self configureKeyboard];
-    [self addGuideView];
+    
+//    [self addGuideView];
     
     [self.window makeKeyAndVisible];
     return YES;
@@ -52,7 +53,7 @@
     [images addObject:[UIImage imageNamed:@"1"]];
     [images addObject:[UIImage imageNamed:@"2"]];
     [images addObject:[UIImage imageNamed:@"3"]];
-    
+    if (images.count == 0) return;
     HcdGuideView *guideView = [HcdGuideView sharedInstance];
     guideView.window = self.window;
     [guideView showGuideViewWithImages:images
