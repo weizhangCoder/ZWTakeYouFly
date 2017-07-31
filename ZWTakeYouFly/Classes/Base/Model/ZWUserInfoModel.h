@@ -20,7 +20,5 @@
 @property (nonatomic, strong) NSString * update_time;
 @property (nonatomic, strong) NSString * head_img;
 
-//-(instancetype)initWithDictionary:(NSDictionary *)dictionary;
-//
-//-(NSDictionary *)toDictionary;
+
 @end
