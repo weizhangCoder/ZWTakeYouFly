@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7275B66D1F2EC3DC00F5016A /* MJExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7275B66C1F2EC3DC00F5016A /* MJExtensionConfig.m */; };
 		72D9E20A1F25CE6F00FED4A4 /* CYLTabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E2091F25CE6F00FED4A4 /* CYLTabBarControllerConfig.m */; };
 		72D9E21F1F25EA3400FED4A4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E2181F25EA3400FED4A4 /* FirstViewController.m */; };
 		72D9E2201F25EA3400FED4A4 /* FourViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E21A1F25EA3400FED4A4 /* FourViewController.m */; };
@@ -56,6 +57,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7275B66B1F2EC3DC00F5016A /* MJExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConfig.h; sourceTree = "<group>"; };
+		7275B66C1F2EC3DC00F5016A /* MJExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConfig.m; sourceTree = "<group>"; };
 		72D9E2081F25CE6F00FED4A4 /* CYLTabBarControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTabBarControllerConfig.h; sourceTree = "<group>"; };
 		72D9E2091F25CE6F00FED4A4 /* CYLTabBarControllerConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CYLTabBarControllerConfig.m; sourceTree = "<group>"; };
 		72D9E2171F25EA3400FED4A4 /* FirstViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstViewController.h; sourceTree = "<group>"; };
@@ -270,6 +273,8 @@
 				72F7FFBB1F2200A800BFC7E6 /* ZWUserInfoManager.m */,
 				72F7FF5D1F21FDDC00BFC7E6 /* NHFileCacheManager.h */,
 				72F7FF5E1F21FDDC00BFC7E6 /* NHFileCacheManager.m */,
+				7275B66B1F2EC3DC00F5016A /* MJExtensionConfig.h */,
+				7275B66C1F2EC3DC00F5016A /* MJExtensionConfig.m */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -749,6 +754,7 @@
 				72F7FED61F21F1DC00BFC7E6 /* main.m in Sources */,
 				72F7FF9F1F21FFA000BFC7E6 /* NSDictionary+Addition.m in Sources */,
 				72F7FFA21F21FFA000BFC7E6 /* NSString+Addition.m in Sources */,
+				7275B66D1F2EC3DC00F5016A /* MJExtensionConfig.m in Sources */,
 				72F7FFC21F22010400BFC7E6 /* NHCommonConstant.m in Sources */,
 				72F7FFB91F21FFDE00BFC7E6 /* ZWProgressHUD.m in Sources */,
 				72D9E22F1F26D77600FED4A4 /* HcdGuideView.m in Sources */,
