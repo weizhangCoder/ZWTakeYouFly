@@ -15,6 +15,9 @@ PODS:
   - AFNetworking/Serialization (3.0.4)
   - AFNetworking/UIKit (3.0.4):
     - AFNetworking/NSURLSession
+  - BuglyHotfix (2.0.0):
+    - BuglyHotfix/Core (= 2.0.0)
+  - BuglyHotfix/Core (2.0.0)
   - CYLTabBarController (1.13.1)
   - DACircularProgress (2.3.1)
   - HSSetTableViewController (1.1.9):
@@ -42,6 +45,7 @@ PODS:
 DEPENDENCIES:
   - ACAlertController
   - AFNetworking (= 3.0.4)
+  - BuglyHotfix
   - CYLTabBarController (= 1.13.1)
   - HSSetTableViewController (= 1.1.9)
   - IQKeyboardManager (= 4.0.10)
@@ -58,6 +62,7 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   ACAlertController: 10f0455c3e1691a6197b5cd0d96d6f9a03c82763
   AFNetworking: a0075feb321559dc78d9d85b55d11caa19eabb93
+  BuglyHotfix: c56f21af72dda3acdc0b611d351b0bbb86fb2464
   CYLTabBarController: 97f6b486f9e6c613d69e9c111cc9c2c5db7000ce
   DACircularProgress: 4dd437c0fc3da5161cb289e07ac449493d41db71
   HSSetTableViewController: 31469afc15ad591bc8b6d6f1ab9a7fd51ee28971
@@ -73,6 +78,6 @@ SPEC CHECKSUMS:
   SDWebImage: 1d2b1a1efda1ade1b00b6f8498865f8ddedc8a84
   TZImagePickerController: 612c79b572efd0363c7a966daad7a974c2d6b458
 
-PODFILE CHECKSUM: 852bf4e50024a9b5c6fb35dc0a29b0a2bea07faa
+PODFILE CHECKSUM: 7e447cc3b14fde95e91fabdb661e14d190db1918
 
 COCOAPODS: 1.2.0.beta.1

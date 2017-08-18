@@ -15,7 +15,7 @@ target 'ZWTakeYouFly' do
   pod 'MJRefresh', '3.0.6'
   pod 'RTRootNavigationController', '~> 0.5.26'
   pod 'SDCycleScrollView'
-#  pod 'WRNavigationBar','1.0.1'
+  pod 'BuglyHotfix'
   #添加照片所需要的
   pod 'TZImagePickerController'
   pod 'MWPhotoBrowser'

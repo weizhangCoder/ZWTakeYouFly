@@ -10,7 +10,9 @@
 #import "CYLTabBarControllerConfig.h"
 #import "HcdGuideView.h"
 
-@interface AppDelegate ()
+#import <BuglyHotfix/Bugly.h>
+
+@interface AppDelegate ()<BuglyDelegate>
 
 @end
 
@@ -29,6 +31,8 @@
     // 1.键盘全局设置
     [self configureKeyboard];
     
+    [self configBugly];
+    
 //    [self addGuideView];
     
     [self.window makeKeyAndVisible];
@@ -45,6 +49,19 @@
     //最新版的设置键盘的returnKey的关键字 ,可以点击键盘上的next键，自动跳转到下一个输入框，最后一个输入框点击完成，自动收起键盘
     manager.toolbarManageBehaviour =IQAutoToolbarByTag;
     manager.toolbarDoneBarButtonItemText =@"完成";//将右边Done改成完成
+}
+- (void)configBugly{
+    BuglyConfig *config = [[BuglyConfig alloc]init];
+    config.delegate = self;
+    config.debugMode = YES;
+    config.version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
+    config.reportLogLevel = BuglyLogLevelInfo;
+    [Bugly startWithAppId:@"9c97f1a1bf"
+#if DEBUG
+        developmentDevice:YES
+#endif
+                   config:config];
+
 }
 
 - (void)addGuideView{

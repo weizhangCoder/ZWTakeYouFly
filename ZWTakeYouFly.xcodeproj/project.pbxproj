@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		722AD9B11F46BF0000336154 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B01F46BF0000336154 /* SystemConfiguration.framework */; };
+		722AD9B31F46BF0E00336154 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B21F46BF0E00336154 /* Security.framework */; };
+		722AD9B51F46BF1C00336154 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B41F46BF1C00336154 /* libz.tbd */; };
+		722AD9B71F46BF3300336154 /* libc++.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B61F46BF3300336154 /* libc++.tbd */; };
 		7275B66D1F2EC3DC00F5016A /* MJExtensionConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 7275B66C1F2EC3DC00F5016A /* MJExtensionConfig.m */; };
 		72D9E20A1F25CE6F00FED4A4 /* CYLTabBarControllerConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E2091F25CE6F00FED4A4 /* CYLTabBarControllerConfig.m */; };
 		72D9E21F1F25EA3400FED4A4 /* FirstViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72D9E2181F25EA3400FED4A4 /* FirstViewController.m */; };
@@ -19,7 +23,6 @@
 		72F7FED61F21F1DC00BFC7E6 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7FED51F21F1DC00BFC7E6 /* main.m */; };
 		72F7FEE11F21F1DC00BFC7E6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 72F7FEE01F21F1DC00BFC7E6 /* Assets.xcassets */; };
 		72F7FEFE1F21F67C00BFC7E6 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7FEEE1F21F67C00BFC7E6 /* AppDelegate.m */; };
-		72F7FEFF1F21F67C00BFC7E6 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7FEFA1F21F67C00BFC7E6 /* ViewController.m */; };
 		72F7FF0C1F21F7C300BFC7E6 /* ZWBaseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7FF061F21F7C300BFC7E6 /* ZWBaseModel.m */; };
 		72F7FF0D1F21F7C300BFC7E6 /* ZWBaseTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7FF091F21F7C300BFC7E6 /* ZWBaseTableViewController.m */; };
 		72F7FF0E1F21F7C300BFC7E6 /* ZWBaseViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 72F7FF0B1F21F7C300BFC7E6 /* ZWBaseViewController.m */; };
@@ -57,6 +60,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		722AD9B01F46BF0000336154 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		722AD9B21F46BF0E00336154 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		722AD9B41F46BF1C00336154 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		722AD9B61F46BF3300336154 /* libc++.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.tbd"; path = "usr/lib/libc++.tbd"; sourceTree = SDKROOT; };
 		7275B66B1F2EC3DC00F5016A /* MJExtensionConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MJExtensionConfig.h; sourceTree = "<group>"; };
 		7275B66C1F2EC3DC00F5016A /* MJExtensionConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MJExtensionConfig.m; sourceTree = "<group>"; };
 		72D9E2081F25CE6F00FED4A4 /* CYLTabBarControllerConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CYLTabBarControllerConfig.h; sourceTree = "<group>"; };
@@ -81,8 +88,6 @@
 		72F7FEE51F21F1DC00BFC7E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72F7FEED1F21F67C00BFC7E6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72F7FEEE1F21F67C00BFC7E6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		72F7FEF91F21F67C00BFC7E6 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		72F7FEFA1F21F67C00BFC7E6 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		72F7FF001F21F6EF00BFC7E6 /* ZWCommonAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWCommonAPI.h; sourceTree = "<group>"; };
 		72F7FF011F21F6EF00BFC7E6 /* ZWconstStr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWconstStr.h; sourceTree = "<group>"; };
 		72F7FF021F21F6EF00BFC7E6 /* ZWEnumerate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWEnumerate.h; sourceTree = "<group>"; };
@@ -164,6 +169,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				722AD9B71F46BF3300336154 /* libc++.tbd in Frameworks */,
+				722AD9B51F46BF1C00336154 /* libz.tbd in Frameworks */,
+				722AD9B31F46BF0E00336154 /* Security.framework in Frameworks */,
+				722AD9B11F46BF0000336154 /* SystemConfiguration.framework in Frameworks */,
 				76B9A17557AEA23EC56BDA07 /* Pods_ZWTakeYouFly.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -284,8 +293,6 @@
 			children = (
 				72F7FEF31F21F67C00BFC7E6 /* Home(首页) */,
 				72F7FEF81F21F67C00BFC7E6 /* Mine(主视图) */,
-				72F7FEF91F21F67C00BFC7E6 /* ViewController.h */,
-				72F7FEFA1F21F67C00BFC7E6 /* ViewController.m */,
 			);
 			path = Modules;
 			sourceTree = "<group>";
@@ -600,6 +607,10 @@
 		B490288A004A093FA3FCFA6F /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				722AD9B61F46BF3300336154 /* libc++.tbd */,
+				722AD9B41F46BF1C00336154 /* libz.tbd */,
+				722AD9B21F46BF0E00336154 /* Security.framework */,
+				722AD9B01F46BF0000336154 /* SystemConfiguration.framework */,
 				BA29BBFE4F7EA7D9AC039F52 /* Pods_ZWTakeYouFly.framework */,
 			);
 			name = Frameworks;
@@ -759,7 +770,6 @@
 				72F7FFB91F21FFDE00BFC7E6 /* ZWProgressHUD.m in Sources */,
 				72D9E22F1F26D77600FED4A4 /* HcdGuideView.m in Sources */,
 				72F7FF9D1F21FFA000BFC7E6 /* DataSafe.m in Sources */,
-				72F7FEFF1F21F67C00BFC7E6 /* ViewController.m in Sources */,
 				72F7FFA61F21FFA000BFC7E6 /* UIFont+Extension.m in Sources */,
 				72F7FFAA1F21FFA000BFC7E6 /* UILabel+ChangeLineSpaceAndWordSpace.m in Sources */,
 				72F7FFCF1F22014F00BFC7E6 /* NHBaseTableViewCell.m in Sources */,
