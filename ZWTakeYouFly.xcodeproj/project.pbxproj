@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5336BA4F1F95A588003CFA7D /* ZWTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5336BA4E1F95A588003CFA7D /* ZWTool.m */; };
 		722AD9B11F46BF0000336154 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B01F46BF0000336154 /* SystemConfiguration.framework */; };
 		722AD9B31F46BF0E00336154 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B21F46BF0E00336154 /* Security.framework */; };
 		722AD9B51F46BF1C00336154 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B41F46BF1C00336154 /* libz.tbd */; };
@@ -60,6 +61,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		5336BA4D1F95A588003CFA7D /* ZWTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWTool.h; sourceTree = "<group>"; };
+		5336BA4E1F95A588003CFA7D /* ZWTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWTool.m; sourceTree = "<group>"; };
 		722AD9B01F46BF0000336154 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		722AD9B21F46BF0E00336154 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		722AD9B41F46BF1C00336154 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -180,6 +183,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5336BA4C1F95A569003CFA7D /* ZWTool */ = {
+			isa = PBXGroup;
+			children = (
+				5336BA4D1F95A588003CFA7D /* ZWTool.h */,
+				5336BA4E1F95A588003CFA7D /* ZWTool.m */,
+			);
+			path = ZWTool;
+			sourceTree = "<group>";
+		};
 		72D9E22A1F26D77600FED4A4 /* GuideController */ = {
 			isa = PBXGroup;
 			children = (
@@ -366,6 +378,7 @@
 		72F7FEFC1F21F67C00BFC7E6 /* Tool */ = {
 			isa = PBXGroup;
 			children = (
+				5336BA4C1F95A569003CFA7D /* ZWTool */,
 				72F7FFB11F21FFDE00BFC7E6 /* LCProgressHUD */,
 				72F7FEFD1F21F67C00BFC7E6 /* Category */,
 			);
@@ -763,6 +776,7 @@
 				72F7FFAD1F21FFA000BFC7E6 /* UIView+Layer.m in Sources */,
 				72F7FF0E1F21F7C300BFC7E6 /* ZWBaseViewController.m in Sources */,
 				72F7FED61F21F1DC00BFC7E6 /* main.m in Sources */,
+				5336BA4F1F95A588003CFA7D /* ZWTool.m in Sources */,
 				72F7FF9F1F21FFA000BFC7E6 /* NSDictionary+Addition.m in Sources */,
 				72F7FFA21F21FFA000BFC7E6 /* NSString+Addition.m in Sources */,
 				7275B66D1F2EC3DC00F5016A /* MJExtensionConfig.m in Sources */,
