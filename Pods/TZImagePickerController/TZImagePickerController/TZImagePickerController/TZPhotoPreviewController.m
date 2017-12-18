@@ -57,7 +57,7 @@
     [self configCustomNaviBar];
     [self configBottomToolBar];
     self.view.clipsToBounds = YES;
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeStatusBarOrientationNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeStatusBarOrientationNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];    
 }
 
 - (void)setPhotos:(NSMutableArray *)photos {
@@ -68,9 +68,7 @@
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     [self.navigationController setNavigationBarHidden:YES animated:YES];
-    if (!TZ_isGlobalHideStatusBar) {
-        if (iOS7Later) [UIApplication sharedApplication].statusBarHidden = YES;
-    }
+    if (iOS7Later) [UIApplication sharedApplication].statusBarHidden = YES;
     if (_currentIndex) [_collectionView setContentOffset:CGPointMake((self.view.tz_width + 20) * _currentIndex, 0) animated:NO];
     [self refreshNaviBarAndBottomBarState];
 }
@@ -78,8 +76,8 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     [self.navigationController setNavigationBarHidden:NO animated:YES];
-    if (!TZ_isGlobalHideStatusBar) {
-        if (iOS7Later) [UIApplication sharedApplication].statusBarHidden = NO;
+    if (TZ_showStatusBarInitial && iOS7Later) {
+        [UIApplication sharedApplication].statusBarHidden = NO;
     }
     [TZImageManager manager].shouldFixOrientation = NO;
 }
@@ -95,7 +93,7 @@
     _naviBar.backgroundColor = [UIColor colorWithRed:(34/255.0) green:(34/255.0)  blue:(34/255.0) alpha:0.7];
     
     _backButton = [[UIButton alloc] initWithFrame:CGRectZero];
-    [_backButton setImage:[UIImage imageNamedFromMyBundle:@"navi_back.png"] forState:UIControlStateNormal];
+    [_backButton setImage:[UIImage imageNamedFromMyBundle:@"navi_back"] forState:UIControlStateNormal];
     [_backButton setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     [_backButton addTarget:self action:@selector(backButtonClick) forControlEvents:UIControlEventTouchUpInside];
     
@@ -217,9 +215,12 @@
     [super viewDidLayoutSubviews];
     TZImagePickerController *_tzImagePickerVc = (TZImagePickerController *)self.navigationController;
 
-    _naviBar.frame = CGRectMake(0, 0, self.view.tz_width, 64);
-    _backButton.frame = CGRectMake(10, 10, 44, 44);
-    _selectButton.frame = CGRectMake(self.view.tz_width - 54, 10, 42, 42);
+    CGFloat statusBarHeight = [TZCommonTools tz_statusBarHeight];
+    CGFloat statusBarHeightInterval = statusBarHeight - 20;
+    CGFloat naviBarHeight = statusBarHeight + _tzImagePickerVc.navigationBar.tz_height;
+    _naviBar.frame = CGRectMake(0, 0, self.view.tz_width, naviBarHeight);
+    _backButton.frame = CGRectMake(10, 10 + statusBarHeightInterval, 44, 44);
+    _selectButton.frame = CGRectMake(self.view.tz_width - 54, 10 + statusBarHeightInterval, 42, 42);
     
     _layout.itemSize = CGSizeMake(self.view.tz_width + 20, self.view.tz_height);
     _layout.minimumInteritemSpacing = 0;
@@ -234,9 +235,11 @@
         [_collectionView reloadData];
     }
     
-    _toolBar.frame = CGRectMake(0, self.view.tz_height - 44, self.view.tz_width, 44);
+    CGFloat toolBarHeight = [TZCommonTools tz_isIPhoneX] ? 44 + (83 - 49) : 44;
+    CGFloat toolBarTop = self.view.tz_height - toolBarHeight;
+    _toolBar.frame = CGRectMake(0, toolBarTop, self.view.tz_width, toolBarHeight);
     if (_tzImagePickerVc.allowPickingOriginalPhoto) {
-        CGFloat fullImageWidth = [_tzImagePickerVc.fullImageBtnTitleStr boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.width;
+        CGFloat fullImageWidth = [_tzImagePickerVc.fullImageBtnTitleStr tz_calculateSizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} maxSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)].width;
         _originalPhotoButton.frame = CGRectMake(0, 0, fullImageWidth + 56, 44);
         _originalPhotoLabel.frame = CGRectMake(fullImageWidth + 42, 0, 80, 44);
     }
@@ -422,6 +425,7 @@
         [photoPreviewCell setImageProgressUpdateBlock:^(double progress) {
             weakSelf.progress = progress;
             if (progress >= 1) {
+                if (weakSelf.isSelectOriginalPhoto) [weakSelf showPhotoBytes];
                 if (weakSelf.alertView && [weakCollectionView.visibleCells containsObject:weakCell]) {
                     [weakTzImagePickerVc hideAlertView:weakSelf.alertView];
                     weakSelf.alertView = nil;

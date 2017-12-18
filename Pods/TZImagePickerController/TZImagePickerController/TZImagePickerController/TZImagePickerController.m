@@ -4,7 +4,7 @@
 //
 //  Created by 谭真 on 15/12/24.
 //  Copyright © 2015年 谭真. All rights reserved.
-//  version 1.8.4 - 2017.07.22
+//  version 1.9.6 - 2017.11.23
 //  更多信息，请前往项目的github地址：https://github.com/banchichen/TZImagePickerController
 
 #import "TZImagePickerController.h"
@@ -14,6 +14,8 @@
 #import "TZAssetCell.h"
 #import "UIView+Layout.h"
 #import "TZImageManager.h"
+#import "math.h"
+#import "sys/utsname.h"
 
 @interface TZImagePickerController () {
     NSTimer *_timer;
@@ -36,6 +38,14 @@
 
 @implementation TZImagePickerController
 
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        self = [self initWithMaxImagesCount:9 delegate:nil];
+    }
+    return self;
+}
+
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wdeprecated-declarations"
 - (void)viewDidLoad {
@@ -54,13 +64,15 @@
         self.navigationBar.barTintColor = [UIColor colorWithRed:(34/255.0) green:(34/255.0)  blue:(34/255.0) alpha:1.0];
         self.navigationBar.tintColor = [UIColor whiteColor];
         self.automaticallyAdjustsScrollViewInsets = NO;
-        if (!TZ_isGlobalHideStatusBar) [UIApplication sharedApplication].statusBarHidden = NO;
+        if (TZ_showStatusBarInitial) [UIApplication sharedApplication].statusBarHidden = NO;
     }    
 }
 
 - (void)setNaviBgColor:(UIColor *)naviBgColor {
     _naviBgColor = naviBgColor;
-    self.navigationBar.barTintColor = naviBgColor;
+    if (iOS7Later) {
+        self.navigationBar.barTintColor = naviBgColor;
+    }
 }
 
 - (void)setNaviTitleColor:(UIColor *)naviTitleColor {
@@ -75,8 +87,12 @@
 
 - (void)configNaviTitleAppearance {
     NSMutableDictionary *textAttrs = [NSMutableDictionary dictionary];
-    textAttrs[NSForegroundColorAttributeName] = self.naviTitleColor;
-    textAttrs[NSFontAttributeName] = self.naviTitleFont;
+    if (self.naviTitleColor) {
+        textAttrs[NSForegroundColorAttributeName] = self.naviTitleColor;
+    }
+    if (self.naviTitleFont) {
+        textAttrs[NSFontAttributeName] = self.naviTitleFont;
+    }
     self.navigationBar.titleTextAttributes = textAttrs;
 }
 
@@ -109,7 +125,7 @@
     
     if (self.isStatusBarDefault) {
         [UIApplication sharedApplication].statusBarStyle = iOS7Later ? UIStatusBarStyleDefault : UIStatusBarStyleBlackOpaque;
-    }else{
+    } else {
         [UIApplication sharedApplication].statusBarStyle = iOS7Later ? UIStatusBarStyleLightContent : UIStatusBarStyleBlackOpaque;
     }
 }
@@ -156,18 +172,24 @@
             _tipLabel.numberOfLines = 0;
             _tipLabel.font = [UIFont systemFontOfSize:16];
             _tipLabel.textColor = [UIColor blackColor];
-            NSString *appName = [[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleDisplayName"];
-            if (!appName) appName = [[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleName"];
+            NSDictionary *infoDict = [NSBundle mainBundle].localizedInfoDictionary;
+            if (!infoDict) {
+                infoDict = [NSBundle mainBundle].infoDictionary;
+            }
+            NSString *appName = [infoDict valueForKey:@"CFBundleDisplayName"];
+            if (!appName) appName = [infoDict valueForKey:@"CFBundleName"];
             NSString *tipText = [NSString stringWithFormat:[NSBundle tz_localizedStringForKey:@"Allow %@ to access your album in \"Settings -> Privacy -> Photos\""],appName];
             _tipLabel.text = tipText;
             [self.view addSubview:_tipLabel];
             
-            _settingBtn = [UIButton buttonWithType:UIButtonTypeSystem];
-            [_settingBtn setTitle:self.settingBtnTitleStr forState:UIControlStateNormal];
-            _settingBtn.frame = CGRectMake(0, 180, self.view.tz_width, 44);
-            _settingBtn.titleLabel.font = [UIFont systemFontOfSize:18];
-            [_settingBtn addTarget:self action:@selector(settingBtnClick) forControlEvents:UIControlEventTouchUpInside];
-            [self.view addSubview:_settingBtn];
+            if (iOS8Later) {
+                _settingBtn = [UIButton buttonWithType:UIButtonTypeSystem];
+                [_settingBtn setTitle:self.settingBtnTitleStr forState:UIControlStateNormal];
+                _settingBtn.frame = CGRectMake(0, 180, self.view.tz_width, 44);
+                _settingBtn.titleLabel.font = [UIFont systemFontOfSize:18];
+                [_settingBtn addTarget:self action:@selector(settingBtnClick) forControlEvents:UIControlEventTouchUpInside];
+                [self.view addSubview:_settingBtn];
+            }
             
             _timer = [NSTimer scheduledTimerWithTimeInterval:0.2 target:self selector:@selector(observeAuthrizationStatusChange) userInfo:nil repeats:YES];
         } else {
@@ -243,13 +265,13 @@
 }
 
 - (void)configDefaultImageName {
-    self.takePictureImageName = @"takePicture.png";
-    self.photoSelImageName = @"photo_sel_photoPickerVc.png";
-    self.photoDefImageName = @"photo_def_photoPickerVc.png";
-    self.photoNumberIconImageName = @"photo_number_icon.png";
-    self.photoPreviewOriginDefImageName = @"preview_original_def.png";
-    self.photoOriginDefImageName = @"photo_original_def.png";
-    self.photoOriginSelImageName = @"photo_original_sel.png";
+    self.takePictureImageName = @"takePicture";
+    self.photoSelImageName = @"photo_sel_photoPickerVc";
+    self.photoDefImageName = @"photo_def_photoPickerVc";
+    self.photoNumberIconImageName = @"photo_number_icon";
+    self.photoPreviewOriginDefImageName = @"preview_original_def";
+    self.photoOriginDefImageName = @"photo_original_def";
+    self.photoOriginSelImageName = @"photo_original_sel";
 }
 
 - (void)configDefaultBtnTitle {
@@ -478,18 +500,7 @@
 }
 
 - (void)settingBtnClick {
-    if (iOS8Later) {
-        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-    } else {
-        NSURL *privacyUrl = [NSURL URLWithString:@"prefs:root=Privacy&path=PHOTOS"];
-        if ([[UIApplication sharedApplication] canOpenURL:privacyUrl]) {
-            [[UIApplication sharedApplication] openURL:privacyUrl];
-        } else {
-            NSString *message = [NSBundle tz_localizedStringForKey:@"Can not jump to the privacy settings page, please go to the settings page by self, thank you"];
-            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:[NSBundle tz_localizedStringForKey:@"Sorry"] message:message delegate:nil cancelButtonTitle:[NSBundle tz_localizedStringForKey:@"OK"] otherButtonTitles: nil];
-            [alert show];
-        }
-    }
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
 }
 
 - (void)pushViewController:(UIViewController *)viewController animated:(BOOL)animated {
@@ -525,7 +536,7 @@
 - (void)willInterfaceOrientionChange {
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.02 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         if (![UIApplication sharedApplication].statusBarHidden) {
-            if (iOS7Later && !TZ_isGlobalHideStatusBar) [UIApplication sharedApplication].statusBarHidden = NO;
+            if (iOS7Later && TZ_showStatusBarInitial) [UIApplication sharedApplication].statusBarHidden = NO;
         }
     });
 }
@@ -592,8 +603,7 @@
         self.navigationItem.title = [NSBundle tz_localizedStringForKey:@"Videos"];
     }
     
-    // 1.6.10 采用微信的方式，只在相册列表页定义backBarButtonItem为返回，其余的顺系统的做法
-    if (self.isFirstAppear) {
+    if (self.isFirstAppear && !imagePickerVc.navLeftBarButtonSettingBlock) {
         self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:[NSBundle tz_localizedStringForKey:@"Back"] style:UIBarButtonItemStylePlain target:nil action:nil];
         self.isFirstAppear = NO;
     }
@@ -639,14 +649,13 @@
     CGFloat top = 0;
     CGFloat tableViewHeight = 0;
     CGFloat naviBarHeight = self.navigationController.navigationBar.tz_height;
+    BOOL isStatusBarHidden = [UIApplication sharedApplication].isStatusBarHidden;
     if (self.navigationController.navigationBar.isTranslucent) {
         top = naviBarHeight;
-        if (iOS7Later && !TZ_isGlobalHideStatusBar) top += 20;
+        if (iOS7Later && !isStatusBarHidden) top += [TZCommonTools tz_statusBarHeight];
         tableViewHeight = self.view.tz_height - top;
     } else {
-        CGFloat navigationHeight = naviBarHeight;
-        if (iOS7Later && !TZ_isGlobalHideStatusBar) navigationHeight += 20;
-        tableViewHeight = self.view.tz_height - navigationHeight;
+        tableViewHeight = self.view.tz_height;
     }
     _tableView.frame = CGRectMake(0, top, self.view.tz_width, tableViewHeight);
 }
@@ -683,16 +692,65 @@
 @implementation UIImage (MyBundle)
 
 + (UIImage *)imageNamedFromMyBundle:(NSString *)name {
-    UIImage *image = [UIImage imageNamed:[@"TZImagePickerController.bundle" stringByAppendingPathComponent:name]];
-    if (image) {
-        return image;
-    } else {
-        image = [UIImage imageNamed:[@"Frameworks/TZImagePickerController.framework/TZImagePickerController.bundle" stringByAppendingPathComponent:name]];
-        if (!image) {
-            image = [UIImage imageNamed:name];
-        }
-        return image;
+    NSBundle *imageBundle = [NSBundle tz_imagePickerBundle];
+    name = [name stringByAppendingString:@"@2x"];
+    NSString *imagePath = [imageBundle pathForResource:name ofType:@"png"];
+    UIImage *image = [UIImage imageWithContentsOfFile:imagePath];
+    if (!image) {
+        // 兼容业务方自己设置图片的方式
+        name = [name stringByReplacingOccurrencesOfString:@"@2x" withString:@""];
+        image = [UIImage imageNamed:name];
     }
+    return image;
+}
+
+@end
+
+
+@implementation NSString (TzExtension)
+
+- (BOOL)tz_containsString:(NSString *)string {
+    if (iOS8Later) {
+        return [self containsString:string];
+    } else {
+        NSRange range = [self rangeOfString:string];
+        return range.location != NSNotFound;
+    }
+}
+
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wdeprecated-declarations"
+- (CGSize)tz_calculateSizeWithAttributes:(NSDictionary *)attributes maxSize:(CGSize)maxSize {
+    CGSize size;
+    if (iOS7Later) {
+        size = [self boundingRectWithSize:maxSize options:NSStringDrawingUsesFontLeading attributes:attributes context:nil].size;
+    } else {
+        size = [self sizeWithFont:attributes[NSFontAttributeName] constrainedToSize:maxSize];
+    }
+    return size;
+}
+#pragma clang diagnostic pop
+
+@end
+
+
+@implementation TZCommonTools
+
++ (BOOL)tz_isIPhoneX {
+    struct utsname systemInfo;
+    uname(&systemInfo);
+    NSString *platform = [NSString stringWithCString:systemInfo.machine encoding:NSASCIIStringEncoding];
+    if ([platform isEqualToString:@"i386"] || [platform isEqualToString:@"x86_64"]) {
+        // 模拟器下采用屏幕的高度来判断
+        return [UIScreen mainScreen].bounds.size.height == 812;
+    }
+    // iPhone10,6是美版iPhoneX 感谢hegelsu指出：https://github.com/banchichen/TZImagePickerController/issues/635
+    BOOL isIPhoneX = [platform isEqualToString:@"iPhone10,3"] || [platform isEqualToString:@"iPhone10,6"];
+    return isIPhoneX;
+}
+
++ (CGFloat)tz_statusBarHeight {
+    return [self tz_isIPhoneX] ? 44 : 20;
 }
 
 @end

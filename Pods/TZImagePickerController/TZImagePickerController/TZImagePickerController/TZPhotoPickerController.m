@@ -54,7 +54,9 @@ static CGFloat itemMargin = 5;
         _imagePickerVc = [[UIImagePickerController alloc] init];
         _imagePickerVc.delegate = self;
         // set appearance / 改变相册选择页的导航栏外观
-        _imagePickerVc.navigationBar.barTintColor = self.navigationController.navigationBar.barTintColor;
+        if (iOS7Later) {
+            _imagePickerVc.navigationBar.barTintColor = self.navigationController.navigationBar.barTintColor;
+        }
         _imagePickerVc.navigationBar.tintColor = self.navigationController.navigationBar.tintColor;
         UIBarButtonItem *tzBarItem, *BarItem;
         if (iOS9Later) {
@@ -69,7 +71,6 @@ static CGFloat itemMargin = 5;
     }
     return _imagePickerVc;
 }
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     TZImagePickerController *tzImagePickerVc = (TZImagePickerController *)self.navigationController;
@@ -78,7 +79,14 @@ static CGFloat itemMargin = 5;
     self.view.backgroundColor = [UIColor whiteColor];
     self.navigationItem.title = _model.name;
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:tzImagePickerVc.cancelBtnTitleStr style:UIBarButtonItemStylePlain target:tzImagePickerVc action:@selector(cancelButtonClick)];
-    _showTakePhotoBtn = (([[TZImageManager manager] isCameraRollAlbum:_model.name]) && tzImagePickerVc.allowTakePicture);
+    if (tzImagePickerVc.navLeftBarButtonSettingBlock) {
+        UIButton *leftButton = [UIButton buttonWithType:UIButtonTypeCustom];
+        leftButton.frame = CGRectMake(0, 0, 44, 44);
+        [leftButton addTarget:self action:@selector(navLeftBarButtonClick) forControlEvents:UIControlEventTouchUpInside];
+        tzImagePickerVc.navLeftBarButtonSettingBlock(leftButton);
+        self.navigationItem.leftBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:leftButton];
+    }
+    _showTakePhotoBtn = (_model.isCameraRoll && tzImagePickerVc.allowTakePicture);
     // [self resetCachedAssets];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(didChangeStatusBarOrientationNotification:) name:UIApplicationDidChangeStatusBarOrientationNotification object:nil];
 }
@@ -116,6 +124,7 @@ static CGFloat itemMargin = 5;
         
         [self checkSelectedModels];
         [self configCollectionView];
+        _collectionView.hidden = YES;
         [self configBottomToolBar];
         
         [self scrollCollectionViewToBottom];
@@ -243,8 +252,8 @@ static CGFloat itemMargin = 5;
     [_bottomToolBar addSubview:_doneButton];
     [_bottomToolBar addSubview:_numberImageView];
     [_bottomToolBar addSubview:_numberLabel];
+    [_bottomToolBar addSubview:_originalPhotoButton];
     [self.view addSubview:_bottomToolBar];
-    [self.view addSubview:_originalPhotoButton];
     [_originalPhotoButton addSubview:_originalPhotoLabel];
 }
 
@@ -258,12 +267,14 @@ static CGFloat itemMargin = 5;
     CGFloat top = 0;
     CGFloat collectionViewHeight = 0;
     CGFloat naviBarHeight = self.navigationController.navigationBar.tz_height;
+    BOOL isStatusBarHidden = [UIApplication sharedApplication].isStatusBarHidden;
+    CGFloat toolBarHeight = [TZCommonTools tz_isIPhoneX] ? 50 + (83 - 49) : 50;
     if (self.navigationController.navigationBar.isTranslucent) {
         top = naviBarHeight;
-        if (iOS7Later && !TZ_isGlobalHideStatusBar) top += 20;
-        collectionViewHeight = tzImagePickerVc.showSelectBtn ? self.view.tz_height - 50 - top : self.view.tz_height - top;;
+        if (iOS7Later && !isStatusBarHidden) top += [TZCommonTools tz_statusBarHeight];
+        collectionViewHeight = tzImagePickerVc.showSelectBtn ? self.view.tz_height - toolBarHeight - top : self.view.tz_height - top;;
     } else {
-        collectionViewHeight = tzImagePickerVc.showSelectBtn ? self.view.tz_height - 50 : self.view.tz_height;
+        collectionViewHeight = tzImagePickerVc.showSelectBtn ? self.view.tz_height - toolBarHeight : self.view.tz_height;
     }
     _collectionView.frame = CGRectMake(0, top, self.view.tz_width, collectionViewHeight);
     CGFloat itemWH = (self.view.tz_width - (self.columnNumber + 1) * itemMargin) / self.columnNumber;
@@ -276,24 +287,24 @@ static CGFloat itemMargin = 5;
         [_collectionView setContentOffset:CGPointMake(0, offsetY)];
     }
     
-    CGFloat yOffset = 0;
+    CGFloat toolBarTop = 0;
     if (!self.navigationController.navigationBar.isHidden) {
-        yOffset = self.view.tz_height - 50;
+        toolBarTop = self.view.tz_height - toolBarHeight;
     } else {
         CGFloat navigationHeight = naviBarHeight;
-        if (iOS7Later) navigationHeight += 20;
-        yOffset = self.view.tz_height - 50 - navigationHeight;
+        if (iOS7Later) navigationHeight += [TZCommonTools tz_statusBarHeight];
+        toolBarTop = self.view.tz_height - toolBarHeight - navigationHeight;
     }
-    _bottomToolBar.frame = CGRectMake(0, yOffset, self.view.tz_width, 50);
-    CGFloat previewWidth = [tzImagePickerVc.previewBtnTitleStr boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} context:nil].size.width + 2;
+    _bottomToolBar.frame = CGRectMake(0, toolBarTop, self.view.tz_width, toolBarHeight);
+    CGFloat previewWidth = [tzImagePickerVc.previewBtnTitleStr tz_calculateSizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:16]} maxSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)].width + 2;
     if (!tzImagePickerVc.allowPreview) {
         previewWidth = 0.0;
     }
     _previewButton.frame = CGRectMake(10, 3, previewWidth, 44);
     _previewButton.tz_width = !tzImagePickerVc.showSelectBtn ? 0 : previewWidth;
     if (tzImagePickerVc.allowPickingOriginalPhoto) {
-        CGFloat fullImageWidth = [tzImagePickerVc.fullImageBtnTitleStr boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX) options:NSStringDrawingUsesFontLeading attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} context:nil].size.width;
-        _originalPhotoButton.frame = CGRectMake(CGRectGetMaxX(_previewButton.frame), self.view.tz_height - 50, fullImageWidth + 56, 50);
+        CGFloat fullImageWidth = [tzImagePickerVc.fullImageBtnTitleStr tz_calculateSizeWithAttributes:@{NSFontAttributeName:[UIFont systemFontOfSize:13]} maxSize:CGSizeMake(CGFLOAT_MAX, CGFLOAT_MAX)].width;
+        _originalPhotoButton.frame = CGRectMake(CGRectGetMaxX(_previewButton.frame), 0, fullImageWidth + 56, 50);
         _originalPhotoLabel.frame = CGRectMake(fullImageWidth + 46, 0, 80, 50);
     }
     _doneButton.frame = CGRectMake(self.view.tz_width - 44 - 12, 3, 44, 44);
@@ -312,7 +323,9 @@ static CGFloat itemMargin = 5;
 }
 
 #pragma mark - Click Event
-
+- (void)navLeftBarButtonClick{
+    [self.navigationController popViewControllerAnimated:YES];
+}
 - (void)previewButtonClick {
     TZPhotoPreviewController *photoPreviewVc = [[TZPhotoPreviewController alloc] init];
     [self pushPhotoPrevireViewController:photoPreviewVc];
@@ -441,9 +454,7 @@ static CGFloat itemMargin = 5;
     cell.allowPickingGif = tzImagePickerVc.allowPickingGif;
     cell.model = model;
     cell.showSelectBtn = tzImagePickerVc.showSelectBtn;
-    if (!tzImagePickerVc.allowPreview) {
-        cell.selectPhotoButton.frame = cell.bounds;
-    }
+    cell.allowPreview = tzImagePickerVc.allowPreview;
     
     __weak typeof(cell) weakCell = cell;
     __weak typeof(self) weakSelf = self;
@@ -535,8 +546,13 @@ static CGFloat itemMargin = 5;
         NSString *appName = [[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleDisplayName"];
         if (!appName) appName = [[NSBundle mainBundle].infoDictionary valueForKey:@"CFBundleName"];
         NSString *message = [NSString stringWithFormat:[NSBundle tz_localizedStringForKey:@"Please allow %@ to access your camera in \"Settings -> Privacy -> Camera\""],appName];
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:[NSBundle tz_localizedStringForKey:@"Can not use camera"] message:message delegate:self cancelButtonTitle:[NSBundle tz_localizedStringForKey:@"Cancel"] otherButtonTitles:[NSBundle tz_localizedStringForKey:@"Setting"], nil];
-        [alert show];
+        if (iOS8Later) {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSBundle tz_localizedStringForKey:@"Can not use camera"] message:message delegate:self cancelButtonTitle:[NSBundle tz_localizedStringForKey:@"Cancel"] otherButtonTitles:[NSBundle tz_localizedStringForKey:@"Setting"], nil];
+            [alert show];
+        } else {
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:[NSBundle tz_localizedStringForKey:@"Can not use camera"] message:message delegate:self cancelButtonTitle:[NSBundle tz_localizedStringForKey:@"OK"] otherButtonTitles:nil];
+            [alert show];
+        }
     } else if (authStatus == AVAuthorizationStatusNotDetermined) {
         // fix issue 466, 防止用户首次拍照拒绝授权时相机页黑屏
         if (iOS7Later) {
@@ -646,7 +662,10 @@ static CGFloat itemMargin = 5;
         dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.01 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
             [_collectionView scrollToItemAtIndexPath:[NSIndexPath indexPathForItem:item inSection:0] atScrollPosition:UICollectionViewScrollPositionBottom animated:NO];
             _shouldScrollToBottom = NO;
+            _collectionView.hidden = NO;
         });
+    } else {
+        _collectionView.hidden = NO;
     }
 }
 
@@ -670,15 +689,6 @@ static CGFloat itemMargin = 5;
     if (buttonIndex == 1) { // 去设置界面，开启相机访问权限
         if (iOS8Later) {
             [[UIApplication sharedApplication] openURL:[NSURL URLWithString:UIApplicationOpenSettingsURLString]];
-        } else {
-            NSURL *privacyUrl = [NSURL URLWithString:@"prefs:root=Privacy&path=CAMERA"];
-            if ([[UIApplication sharedApplication] canOpenURL:privacyUrl]) {
-                [[UIApplication sharedApplication] openURL:privacyUrl];
-            } else {
-                NSString *message = [NSBundle tz_localizedStringForKey:@"Can not jump to the privacy settings page, please go to the settings page by self, thank you"];
-                UIAlertView * alert = [[UIAlertView alloc]initWithTitle:[NSBundle tz_localizedStringForKey:@"Sorry"] message:message delegate:nil cancelButtonTitle:[NSBundle tz_localizedStringForKey:@"OK"] otherButtonTitles: nil];
-                [alert show];
-            }
         }
     }
 }
@@ -741,6 +751,7 @@ static CGFloat itemMargin = 5;
                 [tzImagePickerVc.selectedModels addObject:assetModel];
                 [self refreshBottomToolBarStatus];
             }
+            _collectionView.hidden = YES;
             [_collectionView reloadData];
             
             _shouldScrollToBottom = YES;
