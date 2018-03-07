@@ -8,13 +8,16 @@ target 'ZWTakeYouFly' do
   pod 'HSSetTableViewController' , '1.1.9'
   pod 'ReactiveObjC'
   pod 'IQKeyboardManager' ,'4.0.10'
-  pod 'SDAutoLayout', '2.1.8'
+  pod 'Masonry'
+#  pod 'SDAutoLayout', '2.1.8'
   pod 'AFNetworking', '3.0.4'
   pod 'SDWebImage', '3.7.3'
   pod 'MJExtension', '3.0.13'
   pod 'MJRefresh', '3.0.6'
   pod 'RTRootNavigationController', '~> 0.5.26'
   pod 'SDCycleScrollView'
+  #启动广告
+  pod 'XHLaunchAd'
   pod 'BuglyHotfix'
   #添加照片所需要的
   pod 'TZImagePickerController'

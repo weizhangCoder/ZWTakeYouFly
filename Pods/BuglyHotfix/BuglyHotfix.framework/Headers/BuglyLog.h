@@ -1,5 +1,6 @@
 //
 //  BuglyLog.h
+//  Bugly
 //
 //  Copyright (c) 2017年 Tencent. All rights reserved.
 //

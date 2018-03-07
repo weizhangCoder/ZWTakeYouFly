@@ -17,32 +17,17 @@
 #pragma mark --------------------------LifeCycle----------------------/
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view.
-    
+
 
      NSLog(@"viewDid  %@",NSStringFromCGRect(self.view.frame));
     UIButton * add = [UIButton buttonWithType:UIButtonTypeContactAdd];
     [self.view addSubview:add];
     
-    self.automaticallyAdjustsScrollViewInsets = NO;
-    if( ([[[UIDevice currentDevice] systemVersion] doubleValue]>=7.0)) {
-        self.navigationController.navigationBar.translucent = NO;
-    }
-//    
-//    UIButton * add_2 = [UIButton buttonWithType:UIButtonTypeContactAdd];
-//    add_2.frame = CGRectMake(0, self.view.frame.size.height - 20 - 49 - 64 - 34 - 24, 20, 20);
-//    [self.view addSubview:add_2];
-//    self.view.backgroundColor = [UIColor redColor];
-////    [self.navigationController setNavigationBarHidden:YES];
-    
-       NSLog(@"viewDidLayoutSubviews  %@",NSStringFromCGRect(self.view.frame));
+
+
     
 }
-- (void)viewDidLayoutSubviews{
-    [super viewDidLayoutSubviews];
-      NSLog(@"viewDidLayoutSubviews  %@",NSStringFromCGRect(self.view.frame));
-    
-}
+
 #pragma mark --------------------------SetUp----------------------/
 
 

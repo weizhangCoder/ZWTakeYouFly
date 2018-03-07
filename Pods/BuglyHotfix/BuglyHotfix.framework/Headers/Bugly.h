@@ -1,7 +1,7 @@
 //
 //  Bugly.h
 //
-//  Version: 2.4.8(1) - Hotfix:2.0(0)
+//  Version: 2.5.0(1) - Hotfix:2.1(0)
 //
 //  Copyright (c) 2017年 Tencent. All rights reserved.
 //
