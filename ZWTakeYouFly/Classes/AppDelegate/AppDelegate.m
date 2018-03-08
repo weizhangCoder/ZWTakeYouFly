@@ -8,11 +8,10 @@
 
 #import "AppDelegate.h"
 #import "CYLTabBarControllerConfig.h"
-#import "HcdGuideView.h"
+#import "AppDelegate+configThird.h"
 
-#import <BuglyHotfix/Bugly.h>
 
-@interface AppDelegate ()<BuglyDelegate>
+@interface AppDelegate ()
 
 @end
 
@@ -28,59 +27,13 @@
     CYLTabBarControllerConfig *tabBarControllerConfig = [[CYLTabBarControllerConfig alloc]init];
     CYLTabBarController *tabBarController = tabBarControllerConfig.tabBarController;
     [self.window setRootViewController:tabBarController];
-    // 1.键盘全局设置
-    [self configureKeyboard];
-    
-    [self configBugly];
-    
-//    [self addGuideView];
+
+    [self configBase];
     
     [self.window makeKeyAndVisible];
     return YES;
 }
 
-- (void)configureKeyboard
-{
-    //1. 全局键盘设置
-    IQKeyboardManager *manager = [IQKeyboardManager sharedManager];
-    manager.shouldShowTextFieldPlaceholder = NO;
-    manager.shouldResignOnTouchOutside = YES;
-    manager.keyboardDistanceFromTextField = 90;
-    //最新版的设置键盘的returnKey的关键字 ,可以点击键盘上的next键，自动跳转到下一个输入框，最后一个输入框点击完成，自动收起键盘
-    manager.toolbarManageBehaviour =IQAutoToolbarByTag;
-    manager.toolbarDoneBarButtonItemText =@"完成";//将右边Done改成完成
-}
-- (void)configBugly{
-    BuglyConfig *config = [[BuglyConfig alloc]init];
-    config.delegate = self;
-    config.debugMode = YES;
-    config.version = [[[NSBundle mainBundle] infoDictionary] objectForKey:@"CFBundleShortVersionString"];
-    config.reportLogLevel = BuglyLogLevelInfo;
-    [Bugly startWithAppId:@"9c97f1a1bf"
-#if DEBUG
-        developmentDevice:YES
-#endif
-                   config:config];
-
-}
-
-- (void)addGuideView{
-    NSMutableArray *images = [NSMutableArray new];
-    
-    [images addObject:[UIImage imageNamed:@"1"]];
-    [images addObject:[UIImage imageNamed:@"2"]];
-    [images addObject:[UIImage imageNamed:@"3"]];
-    if (images.count == 0) return;
-    HcdGuideView *guideView = [HcdGuideView sharedInstance];
-    guideView.window = self.window;
-    [guideView showGuideViewWithImages:images
-                        andButtonTitle:@"立即体验"
-                   andButtonTitleColor:[UIColor whiteColor]
-                      andButtonBGColor:[UIColor clearColor]
-                  andButtonBorderColor:[UIColor whiteColor]];
-    
-
-}
 
 - (void)applicationWillResignActive:(UIApplication *)application {
     // Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.

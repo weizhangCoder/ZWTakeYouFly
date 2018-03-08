@@ -14,7 +14,7 @@
             buildForArchiving = "YES">
             <BuildableReference
                BuildableIdentifier = 'primary'
-               BlueprintIdentifier = '19279C6D6B15F3EBA5F548B80BCC4414'
+               BlueprintIdentifier = 'BF4333DA1FA5DE3754AB20F1DADC647C'
                BlueprintName = 'XHLaunchAd'
                ReferencedContainer = 'container:Pods.xcodeproj'
                BuildableName = 'XHLaunchAd.framework'>

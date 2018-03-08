@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		530663921FE7986F000BF402 /* UITableView+LayoutHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 530663901FE7986F000BF402 /* UITableView+LayoutHeaderView.m */; };
 		5336BA4F1F95A588003CFA7D /* ZWTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 5336BA4E1F95A588003CFA7D /* ZWTool.m */; };
+		53EE35222050DADD0004AE81 /* PPHTTPRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EE351F2050DADD0004AE81 /* PPHTTPRequest.m */; };
+		53EE35232050DADD0004AE81 /* PPInterfacedConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EE35212050DADD0004AE81 /* PPInterfacedConst.m */; };
+		53EE35262050E5180004AE81 /* AppDelegate+configThird.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EE35252050E5180004AE81 /* AppDelegate+configThird.m */; };
+		53EE35292051158A0004AE81 /* UIButton+HQCustomIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EE35272051158A0004AE81 /* UIButton+HQCustomIcon.m */; };
 		722AD9B11F46BF0000336154 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B01F46BF0000336154 /* SystemConfiguration.framework */; };
 		722AD9B31F46BF0E00336154 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B21F46BF0E00336154 /* Security.framework */; };
 		722AD9B51F46BF1C00336154 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B41F46BF1C00336154 /* libz.tbd */; };
@@ -66,6 +70,14 @@
 		530663911FE7986F000BF402 /* UITableView+LayoutHeaderView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UITableView+LayoutHeaderView.h"; sourceTree = "<group>"; };
 		5336BA4D1F95A588003CFA7D /* ZWTool.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ZWTool.h; sourceTree = "<group>"; };
 		5336BA4E1F95A588003CFA7D /* ZWTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ZWTool.m; sourceTree = "<group>"; };
+		53EE351E2050DADD0004AE81 /* PPHTTPRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPHTTPRequest.h; sourceTree = "<group>"; };
+		53EE351F2050DADD0004AE81 /* PPHTTPRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPHTTPRequest.m; sourceTree = "<group>"; };
+		53EE35202050DADD0004AE81 /* PPInterfacedConst.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PPInterfacedConst.h; sourceTree = "<group>"; };
+		53EE35212050DADD0004AE81 /* PPInterfacedConst.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PPInterfacedConst.m; sourceTree = "<group>"; };
+		53EE35242050E5180004AE81 /* AppDelegate+configThird.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+configThird.h"; sourceTree = "<group>"; };
+		53EE35252050E5180004AE81 /* AppDelegate+configThird.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+configThird.m"; sourceTree = "<group>"; };
+		53EE35272051158A0004AE81 /* UIButton+HQCustomIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HQCustomIcon.m"; sourceTree = "<group>"; };
+		53EE35282051158A0004AE81 /* UIButton+HQCustomIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+HQCustomIcon.h"; sourceTree = "<group>"; };
 		722AD9B01F46BF0000336154 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		722AD9B21F46BF0E00336154 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		722AD9B41F46BF1C00336154 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -94,7 +106,6 @@
 		72F7FEE51F21F1DC00BFC7E6 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		72F7FEED1F21F67C00BFC7E6 /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		72F7FEEE1F21F67C00BFC7E6 /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		72F7FF001F21F6EF00BFC7E6 /* ZWCommonAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWCommonAPI.h; sourceTree = "<group>"; };
 		72F7FF011F21F6EF00BFC7E6 /* ZWconstStr.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWconstStr.h; sourceTree = "<group>"; };
 		72F7FF021F21F6EF00BFC7E6 /* ZWEnumerate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWEnumerate.h; sourceTree = "<group>"; };
 		72F7FF031F21F6EF00BFC7E6 /* ZWMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZWMacros.h; sourceTree = "<group>"; };
@@ -195,6 +206,17 @@
 			path = ZWTool;
 			sourceTree = "<group>";
 		};
+		53EE351D2050DADD0004AE81 /* HTTPRequest */ = {
+			isa = PBXGroup;
+			children = (
+				53EE351E2050DADD0004AE81 /* PPHTTPRequest.h */,
+				53EE351F2050DADD0004AE81 /* PPHTTPRequest.m */,
+				53EE35202050DADD0004AE81 /* PPInterfacedConst.h */,
+				53EE35212050DADD0004AE81 /* PPInterfacedConst.m */,
+			);
+			path = HTTPRequest;
+			sourceTree = "<group>";
+		};
 		72D9E22A1F26D77600FED4A4 /* GuideController */ = {
 			isa = PBXGroup;
 			children = (
@@ -262,6 +284,8 @@
 			children = (
 				72F7FEED1F21F67C00BFC7E6 /* AppDelegate.h */,
 				72F7FEEE1F21F67C00BFC7E6 /* AppDelegate.m */,
+				53EE35242050E5180004AE81 /* AppDelegate+configThird.h */,
+				53EE35252050E5180004AE81 /* AppDelegate+configThird.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -269,6 +293,7 @@
 		72F7FEEF1F21F67C00BFC7E6 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				53EE351D2050DADD0004AE81 /* HTTPRequest */,
 				72F7FFC31F22014F00BFC7E6 /* View */,
 				72F7FF041F21F7C300BFC7E6 /* Model */,
 				72F7FF071F21F7C300BFC7E6 /* ViewController */,
@@ -279,7 +304,6 @@
 		72F7FEF01F21F67C00BFC7E6 /* Macro */ = {
 			isa = PBXGroup;
 			children = (
-				72F7FF001F21F6EF00BFC7E6 /* ZWCommonAPI.h */,
 				72F7FF011F21F6EF00BFC7E6 /* ZWconstStr.h */,
 				72F7FF021F21F6EF00BFC7E6 /* ZWEnumerate.h */,
 				72F7FF031F21F6EF00BFC7E6 /* ZWMacros.h */,
@@ -507,6 +531,8 @@
 		72F7FF7A1F21FFA000BFC7E6 /* UIButton */ = {
 			isa = PBXGroup;
 			children = (
+				53EE35282051158A0004AE81 /* UIButton+HQCustomIcon.h */,
+				53EE35272051158A0004AE81 /* UIButton+HQCustomIcon.m */,
 				72F7FF7B1F21FFA000BFC7E6 /* UIButton+fast.h */,
 				72F7FF7C1F21FFA000BFC7E6 /* UIButton+fast.m */,
 			);
@@ -668,7 +694,7 @@
 				TargetAttributes = {
 					72F7FED01F21F1DC00BFC7E6 = {
 						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 				};
 			};
@@ -717,17 +743,20 @@
 				"${BUILT_PRODUCTS_DIR}/FLAnimatedImage/FLAnimatedImage.framework",
 				"${BUILT_PRODUCTS_DIR}/HSSetTableViewController/HSSetTableViewController.framework",
 				"${BUILT_PRODUCTS_DIR}/IQKeyboardManager/IQKeyboardManager.framework",
+				"${BUILT_PRODUCTS_DIR}/LYEmptyView/LYEmptyView.framework",
 				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJExtension/MJExtension.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/Masonry/Masonry.framework",
+				"${BUILT_PRODUCTS_DIR}/PPNetworkHelper/PPNetworkHelper.framework",
 				"${BUILT_PRODUCTS_DIR}/RTRootNavigationController/RTRootNavigationController.framework",
-				"${BUILT_PRODUCTS_DIR}/ReactiveObjC/ReactiveObjC.framework",
 				"${BUILT_PRODUCTS_DIR}/SDCycleScrollView/SDCycleScrollView.framework",
 				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/TZImagePickerController/TZImagePickerController.framework",
 				"${BUILT_PRODUCTS_DIR}/XHLaunchAd/XHLaunchAd.framework",
+				"${BUILT_PRODUCTS_DIR}/YYCache/YYCache.framework",
+				"${BUILT_PRODUCTS_DIR}/ZTVendorManager/ZTVendorManager.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -738,17 +767,20 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/FLAnimatedImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HSSetTableViewController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManager.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/LYEmptyView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJExtension.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Masonry.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PPNetworkHelper.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RTRootNavigationController.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReactiveObjC.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDCycleScrollView.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/TZImagePickerController.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XHLaunchAd.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/YYCache.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ZTVendorManager.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -814,6 +846,7 @@
 				72F7FFA31F21FFA000BFC7E6 /* UIBarButtonItem+WNXBarButtonItem.m in Sources */,
 				72F7FFAB1F21FFA000BFC7E6 /* UILabel+Fast.m in Sources */,
 				72F7FFA71F21FFA000BFC7E6 /* UIImage+Extension.m in Sources */,
+				53EE35222050DADD0004AE81 /* PPHTTPRequest.m in Sources */,
 				72D9E2211F25EA3400FED4A4 /* ThreeViewController.m in Sources */,
 				72F7FF611F21FDDC00BFC7E6 /* NHFileCacheManager.m in Sources */,
 				72F7FFAC1F21FFA000BFC7E6 /* UIView+IBExtension.m in Sources */,
@@ -822,8 +855,10 @@
 				72F7FF0E1F21F7C300BFC7E6 /* ZWBaseViewController.m in Sources */,
 				72F7FED61F21F1DC00BFC7E6 /* main.m in Sources */,
 				5336BA4F1F95A588003CFA7D /* ZWTool.m in Sources */,
+				53EE35232050DADD0004AE81 /* PPInterfacedConst.m in Sources */,
 				72F7FF9F1F21FFA000BFC7E6 /* NSDictionary+Addition.m in Sources */,
 				72F7FFA21F21FFA000BFC7E6 /* NSString+Addition.m in Sources */,
+				53EE35292051158A0004AE81 /* UIButton+HQCustomIcon.m in Sources */,
 				7275B66D1F2EC3DC00F5016A /* MJExtensionConfig.m in Sources */,
 				530663921FE7986F000BF402 /* UITableView+LayoutHeaderView.m in Sources */,
 				72F7FFC21F22010400BFC7E6 /* NHCommonConstant.m in Sources */,
@@ -837,6 +872,7 @@
 				72F7FFA41F21FFA000BFC7E6 /* UIButton+fast.m in Sources */,
 				72F7FFB81F21FFDE00BFC7E6 /* LCProgressHUD.m in Sources */,
 				72F7FFCD1F22014F00BFC7E6 /* NHBaseTableHeaderFooterView.m in Sources */,
+				53EE35262050E5180004AE81 /* AppDelegate+configThird.m in Sources */,
 				72F7FF0D1F21F7C300BFC7E6 /* ZWBaseTableViewController.m in Sources */,
 				72F7FFCE1F22014F00BFC7E6 /* NHBaseTableView.m in Sources */,
 				72F7FFA01F21FFA000BFC7E6 /* NSFileManager+Paths.m in Sources */,
@@ -940,12 +976,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZWTakeYouFly/Classes/Macro/PrefixHeader.pch";
 				INFOPLIST_FILE = ZWTakeYouFly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zw.ZWTakeYouFly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Debug;
 		};
@@ -955,12 +994,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = "";
 				GCC_PREFIX_HEADER = "$(SRCROOT)/ZWTakeYouFly/Classes/Macro/PrefixHeader.pch";
 				INFOPLIST_FILE = ZWTakeYouFly/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = zw.ZWTakeYouFly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 			};
 			name = Release;
 		};
