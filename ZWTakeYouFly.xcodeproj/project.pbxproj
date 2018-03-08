@@ -13,6 +13,7 @@
 		53EE35232050DADD0004AE81 /* PPInterfacedConst.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EE35212050DADD0004AE81 /* PPInterfacedConst.m */; };
 		53EE35262050E5180004AE81 /* AppDelegate+configThird.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EE35252050E5180004AE81 /* AppDelegate+configThird.m */; };
 		53EE35292051158A0004AE81 /* UIButton+HQCustomIcon.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EE35272051158A0004AE81 /* UIButton+HQCustomIcon.m */; };
+		53EE352C20512EB80004AE81 /* AppDelegate+PushService.m in Sources */ = {isa = PBXBuildFile; fileRef = 53EE352B20512EB80004AE81 /* AppDelegate+PushService.m */; };
 		722AD9B11F46BF0000336154 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B01F46BF0000336154 /* SystemConfiguration.framework */; };
 		722AD9B31F46BF0E00336154 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B21F46BF0E00336154 /* Security.framework */; };
 		722AD9B51F46BF1C00336154 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 722AD9B41F46BF1C00336154 /* libz.tbd */; };
@@ -78,6 +79,8 @@
 		53EE35252050E5180004AE81 /* AppDelegate+configThird.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+configThird.m"; sourceTree = "<group>"; };
 		53EE35272051158A0004AE81 /* UIButton+HQCustomIcon.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIButton+HQCustomIcon.m"; sourceTree = "<group>"; };
 		53EE35282051158A0004AE81 /* UIButton+HQCustomIcon.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIButton+HQCustomIcon.h"; sourceTree = "<group>"; };
+		53EE352A20512EB80004AE81 /* AppDelegate+PushService.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AppDelegate+PushService.h"; sourceTree = "<group>"; };
+		53EE352B20512EB80004AE81 /* AppDelegate+PushService.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AppDelegate+PushService.m"; sourceTree = "<group>"; };
 		722AD9B01F46BF0000336154 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		722AD9B21F46BF0E00336154 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		722AD9B41F46BF1C00336154 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
@@ -286,6 +289,8 @@
 				72F7FEEE1F21F67C00BFC7E6 /* AppDelegate.m */,
 				53EE35242050E5180004AE81 /* AppDelegate+configThird.h */,
 				53EE35252050E5180004AE81 /* AppDelegate+configThird.m */,
+				53EE352A20512EB80004AE81 /* AppDelegate+PushService.h */,
+				53EE352B20512EB80004AE81 /* AppDelegate+PushService.m */,
 			);
 			path = AppDelegate;
 			sourceTree = "<group>";
@@ -831,6 +836,7 @@
 				72D9E20A1F25CE6F00FED4A4 /* CYLTabBarControllerConfig.m in Sources */,
 				72F7FEFE1F21F67C00BFC7E6 /* AppDelegate.m in Sources */,
 				72F7FFBC1F2200A800BFC7E6 /* ZWUserInfoManager.m in Sources */,
+				53EE352C20512EB80004AE81 /* AppDelegate+PushService.m in Sources */,
 				72D9E2301F26D77600FED4A4 /* HcdGuideViewCell.m in Sources */,
 				72F7FFA91F21FFA000BFC7E6 /* UIImageView+Extension.m in Sources */,
 				72F7FFB01F21FFA000BFC7E6 /* UIViewController+ZWBaseMethods.m in Sources */,

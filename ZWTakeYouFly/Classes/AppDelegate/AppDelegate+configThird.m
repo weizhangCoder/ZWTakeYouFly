@@ -14,6 +14,7 @@
 @implementation AppDelegate (configThird)
 
 - (void)configBase{
+    [self initWindow];
      // 1.键盘全局设置
     [self configureKeyboard];
     //
@@ -25,6 +26,18 @@
     
     [self setUpFixiOS11]; //适配IOS 11
     
+}
+#pragma mark ————— 初始化window —————
+-(void)initWindow{
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    [[UIButton appearance] setExclusiveTouch:YES];
+    [[UIButton appearance] setShowsTouchWhenHighlighted:YES];
+//    [UIActivityIndicatorView appearanceWhenContainedIn:[MBProgressHUD class], nil].color = KWhiteColor;
+    if (@available(iOS 11.0, *)){
+        [[UIScrollView appearance] setContentInsetAdjustmentBehavior:UIScrollViewContentInsetAdjustmentNever];
+    }
 }
 - (void)configLaunchAd{
     //设置你工程的启动页使用的是:LaunchImage 还是 LaunchScreen.storyboard(不设置默认:LaunchImage)
